@@ -100,7 +100,7 @@ img{
 }
 
 img:hover{
-  -webkit-transform:  scale(1.1,1.1)
+  -webkit-transform:  scale(1.15,1.15)
                       rotate(720deg);
   -webkit-filter:     invert(100%);
   -moz-transform:     scale(1.1,1.1)
