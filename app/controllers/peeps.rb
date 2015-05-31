@@ -1,9 +1,8 @@
-
-post '/peeps' do 
+post '/peeps' do
   Peep.create(
-    :content => params[:content],
-    :created_at => Time.now,
-    :user => current_user 
+    content: params[:content],
+    created_at: Time.now,
+    user: current_user
   )
   redirect to('/')
-end 
+end

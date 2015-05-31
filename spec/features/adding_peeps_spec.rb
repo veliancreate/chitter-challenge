@@ -1,34 +1,24 @@
 require 'spec_helper'
+require_relative 'helpers/session'
 
-  feature "User adds a new peep" do 
-    scenario "when browsing the homepage" do 
-      expect(Link.count).to eq(0)
-      visit '/'
-      add_link("https://www.makersacademy.com/", "Makers Academy")
-      expect(Link.count).to eq(1)
-      link = Link.first
-      expect(link.url).to eq("https://www.makersacademy.com/")
-      expect(link.title).to eq("Makers Academy")
-    end
-  
-    scenario "with a few tags" do
-      visit "/"
-      add_link("http://www.makersacademy.com/",
-                  "Makers Academy",
-                  ['education', 'ruby'])
-      link = Link.first
-      expect(link.tags.map(&:text)).to include("education")
-      expect(link.tags.map(&:text)).to include("ruby")
-    end
+feature 'User adds a new peep' do
+  scenario 'when browsing the homepage' do
+    User.create(email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
+    sign_in('test@test.com', 'test')
+    expect(Peep.count).to eq(0)
+    visit '/'
+    add_peep('Hi this is great')
+    expect(Peep.count).to eq(1)
+    peep = Peep.first
+    expect(peep.content).to eq('Hi this is great')
+  end
 
-    def add_link(url, title, tags = [])
-      within('#new-link') do
-        fill_in 'url', :with => url
-        fill_in 'title', :with => title
-        # our tags will be space separated
-        fill_in 'tags', :with => tags.join(' ')
-        click_button 'Add link'
-      end
+  def add_peep(content)
+    within('#new-peep') do
+      fill_in 'content', with: content
     end
-
-  end         
+    click_button 'Peep!'
+  end
+end
