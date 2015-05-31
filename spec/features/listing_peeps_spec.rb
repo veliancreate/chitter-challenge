@@ -7,7 +7,6 @@ feature 'User browses the list of links' do
                 password: 'test',
                 password_confirmation: 'test')
   end
-
   scenario 'when opening the home page' do
     user = User.first
     Peep.create(content: "I'm happy",
