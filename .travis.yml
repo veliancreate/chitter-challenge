@@ -3,13 +3,15 @@ rvm:
   - "2.2.0"
 env: 
   - "test"
-before_script:
-  - "psql -c 'create database travis_ci_test;' -U postgres"
-  - "cp config/database.yml.travis config/database.yml"  
 before_install:
-  - sudo apt-get update -qq 
-  - sudo apt-get install -qq postgresql-server-dev-9.3 
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq postgresql
+  - sudo apt-get install -qq postgresql-server-dev-9.3
+  - sudo apt-get install -qq libpq-dev
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml    
 install: 
-  - "bundle install"
+  - bundle install
