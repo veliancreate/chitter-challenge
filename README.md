@@ -3,13 +3,14 @@
 Chitter Challenge
 =================
 
+<<<<<<< HEAD
 ## Tech used
 
 Ruby, Sinatra, Postgreql, DataMapper, Rspec/Capybara, CSS, Heroku, Travis CI
 
 ## Lessons Learned
 
-This challenge was the first real introduction I had to the MVC pattern, and to databases within a web development context. I was pleased with what I produced with this challenge in particular my takeaway understanding of an MVC. I would be good to implement a feature that users can reply to each other, which would be done by creating an association such as; a comment has many replies.
+This challenge was the first real introduction I had to the MVC pattern, and to databases within a web development context. I was pleased with what I produced with this challenge in particular my takeaway understanding of an MVC. I would be good to implement a feature that users can reply to each other, which would be done by creating a 'comment has many replies' association.
 
 You can take a look at this app [on heroku here](https://chitterbug.herokuapp.com/)
 
