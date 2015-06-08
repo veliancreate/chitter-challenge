@@ -1,22 +1,5 @@
 require 'data_mapper'
 require './app/server'
-require 'rspec/core/rake_task'
-
-RSpec::Core::RakeTask.new(:spec)
-
-task default: [:cop, :spec]
-
-task :console do
-  require 'irb'
-  require 'irb/completion'
-  require_relative 'app/server'
-  ARGV.clear
-  IRB.start
-end
-
-task :env do
-  puts Sinatra::Application.environment
-end
 
 task :auto_upgrade do
   # auto_upgrade makes non-destructive changes.
