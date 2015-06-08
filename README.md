@@ -3,7 +3,6 @@
 Chitter Challenge
 =================
 
-<<<<<<< HEAD
 ## Tech used
 
 Ruby, Sinatra, Postgreql, DataMapper, Rspec/Capybara, CSS, Heroku, Travis CI
